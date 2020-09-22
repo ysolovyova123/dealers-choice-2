@@ -3,10 +3,46 @@
   <head>
     <title>TestPageTitle</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-    <link rel="stylesheet" href="./style.css" />
-    <script src="./bundle.js" defer></script>
+    <script src="bundle.js" defer></script>
+    <style>
+        #groupList {
+          display: flex;
+          list-style-type: none;
+          padding: 0;
+        }
+        #groupList > li {
+          margin: 1rem;
+          padding: 0.5rem;
+        }
+        #map {
+          height: 300px;
+        }
+        body {
+          font-family: verdana;
+          padding: 1rem;
+        }
+        #main {
+          display: flex;
+        }
+        #main > section {
+          flex: 1;
+          margin-right: 1rem;
+          border: solid 1px black;
+        }
+        .selected {
+          border: solid 1px black;
+          background-color: dodgerBlue;
+        }
+        .selected a {
+          color: white;
+        }
+        li[data-id]{
+          cursor: pointer;
+        }
+    </style>
   </head>
   <body>
+    <h1>Wedding Guest List</h1>
     <div id="root"></div>
   </body>
 </html>
