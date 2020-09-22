@@ -1,42 +1,28 @@
-{/* <section>
-          <h3>Groups (Select One)</h3>
-            <ul id='groupList'>
-                {groups.map( group => {
-                  return (
-                    <li key={ group.id } className={ groupSelection === group.id ? 'selected': ''}>
-                      <a href={ `#${group.name}`}>
-                      { group.name }
-                      </a>
-                    </li>
-                  );
-                })}
-            </ul>
-          </section> */}
-
 import React from 'react'
 import {connect} from 'react-redux'
-import StoriesList from './StoriesList'
 import {Link} from 'react-router-dom'
+import {setGroup} from '../store/groupSelection'
+//import {fetchTables} from '../store/tables'
 
-const AllGroups = (props) => {
-  const {groups} = props
-  return (
+class AllGroups extends React.Component {
+
+  render () {
+    const {groups} = this.props
+    return (
     <section>
     <h3>Groups (Select One)</h3>
       <ul id='groupList'>
           {groups.map( group => {
             return (
-              <li key={ group.id } className={ groupSelection === group.id ? 'selected': ''}>
+              <li key={ group.id }>
               <Link to={`/groups/${group.id}`}><h3>{group.name}</h3></Link>
-                <a href={ `#${group.name}`}>
-                { group.name }
-                </a>
               </li>
             );
           })}
       </ul>
     </section>
-  )
+    )
+  }
 }
 
 const mapStateToProps = (state) => {
@@ -45,4 +31,10 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(AllGroups)
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setGroupSelection: (groupId) => dispatch(setGroup(groupId)),
+  };
+};
+
+export default connect(mapStateToProps,mapDispatchToProps)(AllGroups)

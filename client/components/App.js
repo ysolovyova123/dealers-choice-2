@@ -6,6 +6,8 @@ import { fetchGroups } from '../store/groups.js';
 import { fetchTables } from '../store/tables';
 import { fetchGuests } from '../store/guests';
 import Groups from './Groups'
+import Tables from './Tables'
+import Guests from './Guests'
 
 class App extends React.Component {
   componentDidMount() {
@@ -21,7 +23,7 @@ class App extends React.Component {
         <div id="main">
 						<Route path="/" component={Groups}></Route>
 						<Route path="/groups/:id" component={Tables}></Route>
-						<Route path="/tables/:id" component={Guests}></Route>
+						<Route path="/guests/:id" component={Guests}></Route>
         </div>
       </Router>
     );

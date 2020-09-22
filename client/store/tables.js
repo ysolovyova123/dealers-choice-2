@@ -9,10 +9,10 @@ export const setTables = (tables) => {
   }
 }
 
-export const fetchTables = () => {
+export const fetchTables = (groupId) => {
   return async (dispatch) => {
     try {
-      const {data} = await axios.get('/api/tables')
+      const {data} = await axios.get(`/api/tables/${groupId}`)
       dispatch(setTables(data))
     } catch(err) {
       console.log(err)
