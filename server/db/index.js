@@ -1,6 +1,6 @@
 const Sequelize = require("sequelize") //for things like Sequelize.STRING
 const { STRING, FLOAT } = Sequelize;
-const conn = new Sequelize(process.env.DATABASE_URL || 'postgres://localhost:5432/guestlist');
+const conn = new Sequelize(process.env.DATABASE_URL || 'postgres://localhost:5432/guestlist', {logging: false});
 // const conn = new Sequelize('postgres://localhost:5432/friendslistapp')
 
 
@@ -32,6 +32,7 @@ const Group = conn.define('group', {
 });
 
 const syncAndSeed = async()=> {
+  console.log('HELLO')
   await conn.sync({ force: true });
   let groups = [
     {

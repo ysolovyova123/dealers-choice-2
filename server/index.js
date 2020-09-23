@@ -9,7 +9,8 @@ const { syncAndSeed, Guest, Table, Group } = require('./db/index');//require db 
 
 
 //use express.static() MAKE SURE THE PATH TO YOUR PUBLIC FOLDER IS RIGHT!
-app.use('/dist', express.static(path.join(__dirname, '..', 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
+//app.use('/server/public', express.static(path.join(__dirname, 'dist')));
 // app.use(express.static(path.join(__dirname, '..', 'public')))
 
 //require in your routes and use them on your api path

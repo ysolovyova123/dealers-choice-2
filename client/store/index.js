@@ -10,8 +10,8 @@ import guests from './guests'
 const reducer = combineReducers({
   groups,
   tables,
-  guests,
-  groupSelection
+  guests
+  //groupSelection
 })
 
 const middleware = composeWithDevTools(
