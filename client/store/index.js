@@ -5,13 +5,14 @@ import {composeWithDevTools} from 'redux-devtools-extension'
 import groups from './groups'
 import tables from './tables'
 import guests from './guests'
+import groupName from './groupSelection'
 
 
 const reducer = combineReducers({
   groups,
   tables,
-  guests
-  //groupSelection
+  guests,
+  groupName
 })
 
 const middleware = composeWithDevTools(

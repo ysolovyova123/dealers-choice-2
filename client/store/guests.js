@@ -9,10 +9,10 @@ export const setGuests = (guests) => {
   }
 }
 
-export const fetchGuests = () => {
+export const fetchGuests = (tableId) => {
   return async (dispatch) => {
     try {
-      const {data} = await axios.get('/api/guests')
+      const {data} = await axios.get(`/api/guests/${tableId}`)
       dispatch(setGuests(data))
     } catch(err) {
       console.log(err)

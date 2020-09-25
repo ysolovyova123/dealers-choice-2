@@ -58,11 +58,11 @@ app.get('/api/guests', async(req, res, next)=> {
   }
 });
 
-app.get('/api/guests/:group', async(req, res, next)=> {
+app.get('/api/guests/:table', async(req, res, next)=> {
   try {
     res.send(await Guest.findAll({
       where: {
-        group: req.params.group
+        table: req.params.table
       }
     }));
   }
@@ -70,6 +70,7 @@ app.get('/api/guests/:group', async(req, res, next)=> {
     next(ex);
   }
 });
+
 
 
 //500 handler

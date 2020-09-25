@@ -7,7 +7,8 @@ import {setGroup} from '../store/groupSelection'
 class AllGroups extends React.Component {
 
   render () {
-    const {groups} = this.props
+    const {groups, setGroupSelection} = this.props
+    //this.props.setGroupSelection(groups)
     return (
     <section>
     <h3>Groups (Select One)</h3>
@@ -15,7 +16,7 @@ class AllGroups extends React.Component {
           {groups.map( group => {
             return (
               <li key={ group.id }>
-              <Link to={`/groups/${group.id}`}><h3>{group.name}</h3></Link>
+              <Link to={`/groups/${group.name}`}><h3>{group.name}</h3></Link>
               </li>
             );
           })}
@@ -33,7 +34,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    setGroupSelection: (groupId) => dispatch(setGroup(groupId)),
+    //setGroupSelection: (groupName) => dispatch(setGroup(groupName)),
   };
 };
 

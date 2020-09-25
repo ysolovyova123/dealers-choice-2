@@ -11,9 +11,11 @@ import Guests from './Guests'
 
 class App extends React.Component {
   componentDidMount() {
-    this.props.loadGroups(),
-		this.props.loadTables(),
-		this.props.loadGuests()
+		this.props.loadGroups(),
+		console.log(this.props.groups)
+		//this.props.loadTables(),
+		//this.props.loadGuests()
+		// <Route path="/guests/:id" component={Guests}></Route>
   }
 
   render() {
@@ -22,20 +24,25 @@ class App extends React.Component {
       <Router>
         <div id="main">
 						<Route path="/" component={Groups}></Route>
-						<Route path="/groups/:id" component={Tables}></Route>
-						<Route path="/guests/:id" component={Guests}></Route>
+						<Route path="/groups/:name" component={Tables}></Route>
+						<Route path="/groups/:name/guests/:tableId" component={Guests}></Route>
         </div>
       </Router>
     );
   }
 }
 
+const mapStateToProps = (state) => {
+  return {
+    groups: state.groups
+  }
+}
 const mapDispatchToProps = (dispatch) => {
   return {
     loadGroups: () => dispatch(fetchGroups()),
-		loadTables: () => dispatch(fetchTables()),
-    loadGuests: () => dispatch(fetchGuests()),
+		//loadTables: () => dispatch(fetchTables()),
+    //loadGuests: () => dispatch(fetchGuests()),
   };
 };
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
